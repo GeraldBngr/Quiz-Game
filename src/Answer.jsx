@@ -1,6 +1,6 @@
 function Answer({answer}){
 
-console.log("hello");
+console.log("hellos");
 
 
 }
