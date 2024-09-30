@@ -1,20 +1,42 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+// import Answer from "./Answer";
 
 function QuestionBox() {
-    const [data,setData]=useState("");
-    
-    useEffect(()=>{ 
-fetch("https://opentdb.com/api.php?amount=10")
-.then((response)=>{return response.json().then((data)=>setData(data))
-    },[])
+  const questionsURL = "https://the-trivia-api.com/v2/questions?difficulties=easy";
+  const [data, setData] = useState([]);
+  const [currentQuestion, setCurrentQuestion] = useState({});
+  const [possibleAnswers, setPossibleAnswers] = useState([]);
 
+  useEffect(() => {
+    fetch(questionsURL)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+        console.log(data, "fetched");
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
+  useEffect(() => {
+    if (data.length > 0) {
+      const lastQuestion = data[data.length - 1];
+      setCurrentQuestion(lastQuestion);
+      console.log(lastQuestion);
+    }
+  }, [data]);
 
-    return (
-
-<> <p>{data}</p></>
-
-    )
+  return (
+    <>
+      <ul>
+        {/* <Answer />
+        <Answer />
+        <Answer />
+        <Answer /> */}
+      </ul>
+    </>
+  );
 }
 
-export default QuestionBox
+export default QuestionBox;
