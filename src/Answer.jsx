@@ -1,12 +1,15 @@
-function Answer({answer}){
-
-console.log("hellos");
-
-
+function Answer({ possibleAnswer }) {
+    
+    
+  return (
+    
+    <>
+      <div className="answer">
+        {" "}
+        <li style={{ listStyle: "none", marginLeft: "0" }}>{possibleAnswer}</li>
+      </div>{" "}
+    </>
+  );
 }
 
-return(
-    <div> <li>{answer}</li></div>
-)
-
-export default Answer
+export default Answer;
