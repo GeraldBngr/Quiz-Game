@@ -1,14 +1,31 @@
-import { useState } from 'react'
-import QuestionBox from './Question-Box'
+import { useState, useEffect } from "react";
+import QuestionBox from "./Question-Box";
 
 function App() {
-  let a=10;
+  const questionsURL =
+    "https://the-trivia-api.com/v2/questions?difficulties=easy";
+  const [data, setData] = useState([]);
+
+
+  useEffect(() => {
+   
+
+    fetch(questionsURL)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+        
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   return (
     <>
-     <QuestionBox />
+     {data?<QuestionBox setOfQuestions={data} />:""} 
     </>
-  )
+  );
 }
 
-export default App
+export default App;
