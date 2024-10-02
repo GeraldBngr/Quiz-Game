@@ -5,11 +5,14 @@ function App() {
   const questionsURL =
     "https://the-trivia-api.com/v2/questions?difficulties=easy";
   const [data, setData] = useState([]);
-
+  const [game_status, setGame_Status] = useState("prestart");
+ 
 
   useEffect(() => {
+    
    
-
+if(game_status==="prestart"||game_status==="end") {
+ 
     fetch(questionsURL)
       .then((response) => response.json())
       .then((data) => {
@@ -19,13 +22,30 @@ function App() {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []);
+    }
+    
+  }, [game_status]);
 
   return (
     <>
-     {data?<QuestionBox setOfQuestions={data} />:""} 
+     {data?<QuestionBox  game_status={game_status} setGame_Status={setGame_Status} setOfQuestions={data} />:""} 
     </>
   );
 }
 
 export default App;
+
+// function handleOpenModal(task = null) {
+//   setCurrentTask(task);
+//   setModalIsOpen(true);
+//   console.log(task, "modal opened");
+// }
+
+// const handleCloseModal = () => {
+//   setModalIsOpen(false);
+//   setCurrentTask(null);
+//   console.log("modal closed");
+// };
+
+
+
