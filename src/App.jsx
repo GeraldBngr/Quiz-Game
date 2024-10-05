@@ -35,17 +35,7 @@ if(game_status==="prestart"||game_status==="end") {
 
 export default App;
 
-// function handleOpenModal(task = null) {
-//   setCurrentTask(task);
-//   setModalIsOpen(true);
-//   console.log(task, "modal opened");
-// }
 
-// const handleCloseModal = () => {
-//   setModalIsOpen(false);
-//   setCurrentTask(null);
-//   console.log("modal closed");
-// };
 
 
 
