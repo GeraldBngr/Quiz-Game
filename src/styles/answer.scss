@@ -1,0 +1,24 @@
+.answer {
+    background-color: rgb(122, 195, 223);
+    padding: 10px;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .correct {
+    transition: background-color 0.3s ease;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+
+  }
+  
+  .wrong {
+    transition: background-color 0.3s ease;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+  }
+  

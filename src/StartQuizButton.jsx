@@ -1,8 +1,13 @@
-function StartQuizButton({setGame_Status,button_text,game_status}) {
+function StartQuizButton({setGame_Status,button_text,game_status,setUserSelected}) {
 
+
+   
     function setGameToStart() {
+        setUserSelected(false);
         if (game_status==="prestart" || game_status==="end") {
+            
              setGame_Status("action")
+           
         }
        
         
@@ -10,7 +15,7 @@ function StartQuizButton({setGame_Status,button_text,game_status}) {
 
     return(
         <>
-        <button onClick={setGameToStart}>{button_text}</button>
+        <button  onClick={setGameToStart}>{button_text}</button>
         </>
     )
     
